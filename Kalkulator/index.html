@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator 2</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+      <h3>Masukkan angka pertama:</h3>
+      <input v-model = "v1" placeholder="masukkan angka">
+      <br>
+      <h3>Masukkan angka kedua:</h3>
+      <input v-model = "v2" placeholder="masukkan angka">
+
+      <button v-on:click = "hasil = parseFloat(v1) + parseFloat(v2)"> + </button>
+      <button v-on:click = "hasil = parseFloat(v1) - parseFloat(v2)"> - </button>
+      <button v-on:click = "hasil = parseFloat(v1) * parseFloat(v2)"> * </button>
+      <button v-on:click = "hasil = parseFloat(v1) / parseFloat(v2)"> / </button>
+      <br>
+      {{ hasil }}
+    </div>
+    <script type="module" src="index.js">
+      const {createApp} = Vue
+
+      createApp({
+        data() {
+          return {
+            v1: '',
+            v2: '',
+            hasil: 0,
+          }
+      }
+    }).mount('#app')
+    </script>
+  </body>
+</html>
